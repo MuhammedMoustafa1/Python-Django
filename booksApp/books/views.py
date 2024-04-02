@@ -88,10 +88,13 @@ def book_delete(request , id):
 
 def book_create(request):
     if request.method == "POST":
-        # print(request.POST)
+        if request.FILES:
+            image = request.FILES["image"]
+        else:
+            image =None
         book = Book(title = request.POST["title"] , num_of_pages = request.POST["pages"] ,
                     price = request.POST["price"] ,author = request.POST["author"] ,
-                    image = request.POST["image"])
+                    image = image)
         book.save()
         return redirect(book.show_url)
 

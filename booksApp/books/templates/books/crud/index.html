@@ -26,8 +26,7 @@
         <td>{{book.num_of_pages}}</td>
         <td>{{book.author}}</td>
         <td>{{book.price}}</td>
-        <td class="text-center"><img width="200" height="200"
-                                     src="{% static 'books/images/'|add:book.image %}"></td>
+        <td><img width="200" height="200" src="{{book.image_url}}"></td>
         <td><a class="btn btn-info" href="{{book.show_url}}">SHOW</a></td>
         <td><a class="btn btn-danger" href="{{book.delete_url}}">Delete</a></td>
 
