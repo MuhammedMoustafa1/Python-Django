@@ -1,4 +1,4 @@
-from django.shortcuts import render , get_object_or_404
+from django.shortcuts import render , get_object_or_404 , redirect , reverse
 from django.http import HttpResponse
 from django.template import Template
 
@@ -79,5 +79,10 @@ def book_show(request , id):
 
 
 
-
+def book_delete(request , id):
+    book = get_object_or_404(Book , pk=id)
+    book.delete()
+    # return HttpResponse("book deleted")
+    url = reverse("books.index")
+    return redirect(url)
 
