@@ -1,0 +1,39 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block titile %} Books Home {% endblock %}
+
+{% block content %}
+    <h1 class="text-center my-2 bg-primary">All Books</h1>
+
+
+    <table class="table table-hover">
+        <tr>
+            <td>ID</td>
+            <td>Title</td>
+            <td>Pages</td>
+            <td>Author</td>
+            <td>Price</td>
+            <td class="text-center">Image
+            <td>SHOW</td>
+        </tr>
+        {% for book in books %}
+            <tr>
+                <td>{{book.id}}</td>
+                <td>{{book.title}}</td>
+                <td>{{book.num_of_pages}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.price}}</td>
+                <td class="text-center"><img width="200" height="200"
+                     src="{% static 'books/images/'|add:book.image %}"></td>
+                <td><a class="btn btn-info" href="{% url 'books.profile' book.id %}">SHOW</a></td>
+
+
+            </tr>
+
+        {% endfor %}
+
+
+
+    </table>
+
+{% endblock %}
