@@ -86,3 +86,16 @@ def book_delete(request , id):
     url = reverse("books.index")
     return redirect(url)
 
+def book_create(request):
+    if request.method == "POST":
+        # print(request.POST)
+        book = Book(title = request.POST["title"] , num_of_pages = request.POST["pages"] ,
+                    price = request.POST["price"] ,author = request.POST["author"] ,
+                    image = request.POST["image"])
+        book.save()
+        return redirect(book.show_url)
+
+
+
+    return render(request , 'books/crud/create.html')
+

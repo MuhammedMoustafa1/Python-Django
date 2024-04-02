@@ -1,0 +1,33 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+<!--    {{book}}-->
+
+<h2>Add New Book</h2>
+
+<form method="post">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputTitle" class="form-label">Title</label>
+    <input type="text" class="form-control" name="title" id="exampleInputTitle">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPages" class="form-label">Pages</label>
+    <input type="text" class="form-control" name="pages" id="exampleInputPages">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputAuthor" class="form-label">Author</label>
+    <input type="text" class="form-control" name="author" id="exampleInputAuthor">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPrice" class="form-label">Price</label>
+    <input type="text" class="form-control" name="price" id="exampleInputPrice">
+  </div>
+  <div class="mb-3">
+    <label  class="form-label">Image</label>
+    <input type="text" name="image" class="form-control" >
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
