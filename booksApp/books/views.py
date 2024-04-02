@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render , get_object_or_404
 from django.http import HttpResponse
 from django.template import Template
 
-
+from books.models import Book
 # Create your views here.
 
 #function views
@@ -65,7 +65,17 @@ def contact_us(request):
 def About(request):
     return render(request , "books/About.html" , status = 201)
 
+def books_index(request):
+    books = Book.objects.all()
+    return render(request , "books/crud/index.html",
+                  context={"books": books})
 
+
+def book_show(request , id):
+    # book = Book.objects.get(id=id)
+    book = get_object_or_404(Book , pk=id)
+    return render(request , "books/crud/show.html",
+                  context = {"book":book})
 
 
 
