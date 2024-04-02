@@ -1,9 +1,21 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
-<!--    {{book}}-->
-
-   <div>
-     <h1>Hello from contact</h1>
-   </div>
+<div class="container">
+    <h1 class="mt-5 mb-4 text-center">Contact Us</h1>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Contact Information</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Email:</strong> contact@example.com</li>
+                        <li class="list-group-item"><strong>Phone:</strong> +1234567890</li>
+                        <li class="list-group-item"><strong>Address:</strong> 123 Main Street, City, Country</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
