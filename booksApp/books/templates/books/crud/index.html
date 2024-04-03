@@ -18,6 +18,8 @@
         <td class="text-center">Image
         <td>SHOW</td>
         <td>DELETE</td>
+        <td>Update</td>
+
     </tr>
     {% for book in books %}
     <tr>
@@ -28,10 +30,46 @@
         <td>{{book.price}}</td>
         <td><img width="200" height="200" src="{{book.image_url}}"></td>
         <td><a class="btn btn-info" href="{{book.show_url}}">SHOW</a></td>
-        <td><a class="btn btn-danger" href="{{book.delete_url}}">Delete</a></td>
-
+        <td><button  class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{{book.id}}">
+  delete
+                </button></td>
+        <td><a class="btn btn-primary" href="{{book.update_url}}">Update</a></td>
 
     </tr>
+
+
+
+
+
+    <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal{{book.id}}" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Are you sure to Delete</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a class="btn btn-danger" href="{{book.delete_url}}">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 
     {% endfor %}
 
@@ -39,3 +77,5 @@
 </table>
 
 {% endblock %}
+
+

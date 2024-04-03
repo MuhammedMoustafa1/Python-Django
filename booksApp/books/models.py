@@ -29,6 +29,10 @@ class Book(models.Model):
     def image_url(self):
         return f"/media/{self.image}"
 
+    @property
+    def update_url(self):
+        return reverse('books.update', args=[self.id])
+
 
 
 

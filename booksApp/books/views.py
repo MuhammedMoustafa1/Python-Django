@@ -102,3 +102,35 @@ def book_create(request):
 
     return render(request , 'books/crud/create.html')
 
+
+def book_update(request, id):
+    book = get_object_or_404(Book, pk=id)
+
+    if request.method == "POST":
+        if request.FILES:
+            image = request.FILES["image"]
+        else:
+            image = None
+
+        # Update the book object with new data
+        book.title = request.POST["title"]
+        book.num_of_pages = request.POST["pages"]
+        book.price = request.POST["price"]
+        book.author = request.POST["author"]
+
+        if image:
+            book.image = image
+
+
+        book.save()
+
+
+        return redirect(book.show_url)
+
+
+    return render(request, 'books/crud/update.html', {'book': book})
+
+
+
+
+
