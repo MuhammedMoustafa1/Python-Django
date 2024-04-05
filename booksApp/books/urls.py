@@ -5,7 +5,8 @@ from django.contrib import admin
 
 
 from books.views import (hello , welcome , landing , book_details , books_home , book_profile ,
-                         contact_us ,About , books_index , book_show , book_delete , book_create , book_update)
+                         contact_us ,About , books_index , book_show , book_delete ,
+                         book_create , book_update,create_book_model_form)
 #include books urls
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -21,6 +22,7 @@ urlpatterns = [
     path('<int:id>' , book_show , name= 'books.show'),
     path('<int:id>/delete' , book_delete , name = 'books.delete'),
     path('create' , book_create , name = 'books.create'),
-    path('update/<int:id>' , book_update , name='books.update')
+    path('update/<int:id>' , book_update , name='books.update'),
+    path('forms/createmodel' , create_book_model_form , name = 'book.createmodel')
 
 ]

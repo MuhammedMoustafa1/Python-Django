@@ -1,6 +1,7 @@
 from django.shortcuts import render , get_object_or_404 , redirect , reverse
 from django.http import HttpResponse
 from django.template import Template
+from books.forms import BookModelForm
 
 from books.models import Book
 # Create your views here.
@@ -129,6 +130,18 @@ def book_update(request, id):
 
 
     return render(request, 'books/crud/update.html', {'book': book})
+
+
+def create_book_model_form(request):
+    form = BookModelForm()
+    if request.method == 'POST':
+        form = BookModelForm(request.POST , request.FILES)
+        if form.is_valid():
+            book = form.save()
+            return redirect(book.show_url)
+
+    return render(request, 'books/forms/createmodelform.html',
+    context={"form": form})
 
 
 

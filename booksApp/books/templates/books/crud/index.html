@@ -1,12 +1,13 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 {% block titile %} Books From DB  {% endblock %}
-
+book.createmodel
 {% block content %}
 <h1 class="text-center my-2 bg-primary">All Books</h1>
 
 <div class="text-center">
     <a href="{% url 'books.create' %}" class="btn btn-dark my-4 mx-auto">Add New Book</a>
+    <a href="{% url 'book.createmodel' %}" class="btn btn-primary">Add book via Form</a>
 </div>
 <table class="table table-hover table-striped my-2">
     <tr>
