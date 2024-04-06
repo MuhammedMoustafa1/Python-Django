@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404 , reverse
 # Create your models here.
 
 class Category(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100 , unique= True)
     description = models.CharField(max_length=120 , blank=True , null=True)
     logo = models.ImageField(upload_to='logos/images' , blank=True , null=True)
     created_at = models.DateTimeField(auto_now_add=True , null=True)

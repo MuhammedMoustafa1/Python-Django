@@ -1,5 +1,6 @@
 from django.db import models
 from django.shortcuts import reverse , get_object_or_404
+from categories.models import Category
 
 # Create your models here.
 
@@ -11,6 +12,8 @@ class Book(models.Model):
     image = models.ImageField(upload_to="books/images" , null=True , blank=True)
     created_at = models.DateTimeField(auto_now_add=True , null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
+    category = models.ForeignKey(Category , on_delete=models.CASCADE , null=True , blank=True,
+                                 related_name="allbooks")
 
     def __str__(self):
         return f'{self.title}'

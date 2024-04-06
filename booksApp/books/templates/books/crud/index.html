@@ -7,7 +7,10 @@ book.createmodel
 
 <div class="text-center">
     <a href="{% url 'books.create' %}" class="btn btn-dark my-4 mx-auto">Add New Book</a>
-    <a href="{% url 'book.createmodel' %}" class="btn btn-primary">Add book via Form</a>
+    <a href="{% url 'book.createmodel' %}" class="btn btn-primary mx-2">Add book via Form</a>
+    <a href="{% url 'categories.create' %}" class="btn btn-warning">Add Category via Form</a>
+    <a href="{% url 'categories.index' %}" class="btn btn-success mx-2">All Categories</a>
+
 </div>
 <table class="table table-hover table-striped my-2">
     <tr>
@@ -16,6 +19,7 @@ book.createmodel
         <td>Pages</td>
         <td>Author</td>
         <td>Price</td>
+        <td>Category</td>
         <td class="text-center">Image
         <td>SHOW</td>
         <td>DELETE</td>
@@ -31,6 +35,7 @@ book.createmodel
         <td>{{book.num_of_pages}}</td>
         <td>{{book.author}}</td>
         <td>{{book.price}}</td>
+        <td>{{book.category}}</td>
         <td><img width="200" height="200" src="{{book.image_url}}"></td>
         <td><a class="btn btn-info" href="{{book.show_url}}">SHOW</a></td>
         <td><button  class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal{{book.id}}">

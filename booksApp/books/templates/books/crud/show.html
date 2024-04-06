@@ -12,8 +12,22 @@
         <p class="card-text">Author: {{book.author}}</p>
         <p class="card-text">Created_At: {{book.created_at}}</p>
         <p class="card-text">Updated_At: {{book.updated_at}}</p>
+        <p class="card-text">Category: {{book.category}}</p>
+        <p class="card-text">Description of Category: {{book.category.description}}</p>
 
 
     </div>
 </div>
+
+    <h4 class="text-center">See Also :: Books in the same category</h4>
+    {% for book in book.category.allbooks.all %}
+   <div class="card text-center">
+    <div class="card-body">
+        <h5 class="card-title"><a href="{{ book.show_url }}">Book Title: {{ book }}</a></h5>
+    </div>
+    </div>
+
+
+
+    {% endfor %}
 {% endblock %}

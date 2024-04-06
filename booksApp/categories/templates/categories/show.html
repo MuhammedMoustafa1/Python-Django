@@ -10,8 +10,16 @@
         <p class="card-text">PAGES: {{category.description}}</p>
         <p class="card-text">Created_At: {{category.created_at}}</p>
         <p class="card-text">Updated_At: {{category.updated_at}}</p>
-
-
     </div>
 </div>
+
+<h3 class="text-center">Books in the same category</h3>
+
+    {% for book in category.allbooks.all %}
+    <div class="card text-center">
+    <div class="card-body">
+        <h5 class="card-title"><a href="{{ book.show_url }}">Book Title: {{ book }}</a></h5>
+    </div>
+    </div>
+    {% endfor %}
 {% endblock %}
