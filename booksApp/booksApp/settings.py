@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # register application I have installed to the installed apps
     'books.apps.BooksConfig',
+    'categories.apps.CategoriesConfig',
     'django_cleanup.apps.CleanupConfig'
 ]
 

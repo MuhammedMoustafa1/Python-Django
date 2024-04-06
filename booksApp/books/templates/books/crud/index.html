@@ -20,6 +20,8 @@ book.createmodel
         <td>SHOW</td>
         <td>DELETE</td>
         <td>Update</td>
+        <td>Edit</td>
+
 
     </tr>
     {% for book in books %}
@@ -35,6 +37,7 @@ book.createmodel
   delete
                 </button></td>
         <td><a class="btn btn-primary" href="{{book.update_url}}">Update</a></td>
+        <td><a class="btn btn-warning" href="{{book.edit_url}}">Edit</a></td>
 
     </tr>
 

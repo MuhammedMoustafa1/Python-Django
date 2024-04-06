@@ -143,6 +143,18 @@ def create_book_model_form(request):
     return render(request, 'books/forms/createmodelform.html',
     context={"form": form})
 
+def edit_book(request , id):
+    book = Book.get_book_by_id(id)
+    form = BookModelForm(instance=book)
+    if request.method == 'POST':
+        form = BookModelForm(request.POST, request.FILES , instance=book)
+        if form.is_valid():
+            book = form.save()
+            return redirect(book.show_url)
+
+    return render(request, 'books/forms/edit.html',
+                  context={"form": form})
+
 
 
 

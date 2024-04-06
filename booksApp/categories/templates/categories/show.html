@@ -1,0 +1,17 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+<!--    {{book}}-->
+
+<div class="card text-center mx-auto" style="width: 18rem;">
+    <img src="{{category.logo_url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">Title: {{category.name}}</h5>
+        <p class="card-text">PAGES: {{category.description}}</p>
+        <p class="card-text">Created_At: {{category.created_at}}</p>
+        <p class="card-text">Updated_At: {{category.updated_at}}</p>
+
+
+    </div>
+</div>
+{% endblock %}

@@ -1,16 +1,16 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
 {% block content %}
-<h2>Add new Book via form</h2>
-
-<form method = "post" enctype="multipart/form-data">
+<h2>Edit Category via form</h2>
+<img width="200" height="200" class="my-2" src="{{form.instance.logo_url}}">
+<form method = "post" class="my-2" enctype="multipart/form-data">
     {% csrf_token %}
     {{form}}
     <input type="submit" class="btn btn-success">
 </form>
 
 <style>
-
+    /* CSS for error messages */
     .errorlist {
         color: red;
         font-weight: bold;

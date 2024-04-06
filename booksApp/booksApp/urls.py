@@ -26,5 +26,6 @@ urlpatterns = [
     # specify part of the url --> variable must be integer
     # path('book/<int:id>' , book_details , name = 'book.details')
     #include books urls file in main url
-    path('books/', include('books.urls'))
+    path('books/', include('books.urls')),
+    path('categories/', include('categories.urls'))
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
