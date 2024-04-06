@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # register application I have installed to the installed apps
     'books.apps.BooksConfig',
     'categories.apps.CategoriesConfig',
+    'accounts.apps.AccountsConfig',
     'django_cleanup.apps.CleanupConfig'
 ]
 
@@ -73,7 +74,7 @@ ROOT_URLCONF = 'booksApp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR.joinpath('templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

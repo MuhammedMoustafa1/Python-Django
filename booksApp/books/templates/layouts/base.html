@@ -24,6 +24,22 @@
               <a class="nav-link active" aria-current="page" href="{% url 'books.about' %}">About</a>
         </li>
 
+          {% if user.id %}
+          <li class="nav-item ms-5">
+              <a class="nav-link active" aria-current="page" href="#">{{user}}</a>
+          </li>
+          <li class="nav-item">
+              <form method="post" action="{% url 'logout' %}">
+                  {% csrf_token %}
+                  <input type="submit" class="btn btn-warning my-2" value="logout">
+              </form>
+          </li>
+          {% else %}
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+          </li>
+          {% endif %}
+
 
       </ul>
 
