@@ -2,6 +2,7 @@
 from books.views import book_details
 from django.urls import path
 from django.contrib import admin
+from django.contrib.auth.decorators import login_required
 
 
 from books.views import (hello , welcome , landing , book_details , books_home , book_profile ,
@@ -24,6 +25,6 @@ urlpatterns = [
     path('create' , book_create , name = 'books.create'),
     path('update/<int:id>' , book_update , name='books.update'),
     path('forms/createmodel' , create_book_model_form , name = 'book.createmodel'),
-    path('forms/<int:id>/edit' , edit_book , name= 'books.edit')
+    path('forms/<int:id>/edit' ,login_required(edit_book) , name= 'books.edit')
 
 ]
